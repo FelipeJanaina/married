@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="source/home.css">
+</head>
+
+<body>
+    <div class="backgroud"></div>
+
+    <div class="title">
+        <p class="size-3">Casamento de</p>
+        <p class="size-4">Felipe e Janaína</p>
+    </div>
+
+    <div class="info">
+        <p class="size-2 right">24 de Junho de 2023</p>
+        <p class="size-1 right">Igreja Nossa Senhora de Fátima</p>
+    </div>
+    
+    <a class="button button-presence" toggle="modal-presence" href="#">
+        Confirmar presença
+    </a>
+    <a class="button button-present" toggle="modal-present" href="#">
+        Confirmar presente
+    </a>
+
+    <div class="modal" id="modal-present" ontoggle="present">
+        <div class="top">
+            <a class="close" toggle="modal-present" href="#">X</a>
+        </div>
+        <div class="center">
+            <form onsubmit="save">
+                <label for="input-present">Nome do produto</label>
+                <br>
+                <input type="text" name="input-present" id="input-present" onchange="search">
+                <p id="input-present-info"></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal" id="modal-presence" ontoggle="presence">
+        <div class="top">
+            <a class="close" toggle="modal-presence" href="#">X</a>
+        </div>
+        <div class="center">
+            <select name="input-presence" id="input-presence" size="12" onchange="selected">
+                <option value="-1" selected>Não confirmado</option>
+                <option value="0">Não compareceremos</option>
+                <option value="1">1 pessoa comparecerá</option>
+                <option value="2">2 pessoas comparecerá</option>
+                <option value="3">3 pessoas comparecerá</option>
+                <option value="4">4 pessoas comparecerá</option>
+                <option value="5">5 pessoas comparecerá</option>
+                <option value="6">6 pessoas comparecerá</option>
+                <option value="7">7 pessoas comparecerá</option>
+                <option value="8">8 pessoas comparecerá</option>
+                <option value="9">9 pessoas comparecerá</option>
+                <option value="10">10 pessoas comparecerá</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- <script src="./source/verificator.js"></script> -->
+    <script src="./source/main.mjs" type="module"></script>
+</body>
+
+</html>
