@@ -71,6 +71,7 @@ import { onInputChange } from './inputPresent.mjs';
       });
       
     produto.addEventListener('input', async function (event) {
+        produto.value = produto.value.toLowerCase()
         const q = query(collection(db, "convite"), where("presente", "==", produto.value));
         let i = 0;
 
