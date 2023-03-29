@@ -29,10 +29,20 @@ var corpo_tabela = minhaTabela.querySelector("tbody");
     const q = query(collection(db, "Sugestao"));
     let i = 0;
     let dados = "";
+    let selecionado = '';
 
     const resultados = await getDocs(q);
     resultados.forEach((doc) => {
-        dados = dados + "<tr> <td>" + doc.data().nome + "</td><td>" + doc.data().escolhido + "</td></tr> "
+        console.log("entrou ")
+    
+          
+
+        doc.data().escolhido == false? selecionado =   
+//        '<a class="mdl-navigation mdl-typography--body-1-force-preferred-font" id="escolher" href="#" toggle="modal-escolher ">Escolher</a>'
+        ' <button toggle="modal-escolher " value="' + doc.id +'" id= "button_escolher" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">   <i class="fa-solid fa-check"> </i> Escolher </button>'
+        :
+        selecionado =     '<a class="" id="dividir" href="https://wa.me/5555991345102"> <button id= "button_dividir" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">   <i class="fa-brands fa-whatsapp"></i> Dividir </button</a>    '
+        dados = dados + "<tr> <td>" + doc.data().nome + "</td><td>" + selecionado + "</td></tr> "
 });
 // console.log(dados)
 corpo_tabela.innerHTML = dados;

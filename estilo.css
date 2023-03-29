@@ -16,6 +16,104 @@ transform: rotate(0deg);
 /* background-image: url('./img/flores-de-buque.jpg');
  */text-align: center;
 }
+.button_sugest{
+  margin-top: 50%;
+}
+.switch {
+  position: absolute;
+  margin-top: 20px !important;
+  left: 50%;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  margin: -30px 0 0 -75px;
+  background: #00bc9c;
+  transition: all 0.2s ease;
+  border-radius: 25px;
+}
+.switch span {
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  top: 50%;
+  left: 50%;
+  margin: -2px 0px 0px -4px;
+  background: #fff;
+  display: block;
+  transform: rotate(-45deg);
+  transition: all 0.2s ease;
+}
+.switch span:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 4px;
+  height: 12px;
+  margin-top: -8px;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+input[type=radio] {
+  display: none;
+}
+.switch label {
+  cursor: pointer;
+  color: rgba(0,0,0,0.2);
+  width: 60px;
+  line-height: 50px;
+  transition: all 0.2s ease;
+}
+label[for=yes] {
+  position: absolute;
+  left: 0px;
+  height: 20px;
+}
+label[for=no] {
+  position: absolute;
+  right: 0px;
+}
+#no:checked ~ .switch {
+  background: #eb4f37;
+}
+#no:checked ~ .switch span {
+  background: #fff;
+  margin-left: -8px;
+}
+#no:checked ~ .switch span:after {
+  background: #fff;
+  height: 20px;
+  margin-top: -8px;
+  margin-left: 8px;
+}
+#yes:checked ~ .switch label[for=yes] {
+  color: #fff;
+}
+#no:checked ~ .switch label[for=no] {
+  color: #fff;
+}
+input[type=tel] {
+  border-bottom: 2px solid black;
+  margin-top: 25%;
+}
+th{
+  /* color:#ffffff; */
+}
+#sugest{
+  background: linear-gradient(to bottom, #cfd4d7e6, #e3ededde) !important;
+}
+.fa-whatsapp {
+  margin-right: 20px;
+}
+#button_dividir{
+  
+  width: 130px;
+  background: linear-gradient(to bottom, #5fc563e6, #56a35fde) !important;
+  
+}
+#button_escolher{
+  background: linear-gradient(to bottom, #79b6d5e6, #1d86c3de) !important;
+
+}
 .mdl-textfield__error.show {
   display: block;
 }
