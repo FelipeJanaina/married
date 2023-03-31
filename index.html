@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="./source/jquery.dataTables.min.js"></script>
+    <script src="./sugestao.mjs" type="module"></script>
     <title>Casamento</title>
     <link rel="stylesheet" type="text/css" href="source/home.css">
       
@@ -18,59 +20,29 @@
  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script> <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
 
  
+   
+<script>
+
+
+
+
+   
+</script>
 </head>
-
 <body>
-
-  
-    <header class=" mdl-layout__header--waterfall portfolio-header">
-
-        <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
-            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <a toggle="modal-present" id="presente" class="mdl-navigation__link " href="index.html">Informar Presentes</a>
-                                <a  id="sugestoes" class="mdl-navigation__link " href="sugestoes.html">Sugestões</a>
+  <header class=" mdl-layout__header--waterfall portfolio-header">
+    
+    <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+      <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+        <a toggle="modal-present" id="presente" class="mdl-navigation__link " href="index.html">Informar Presentes</a>
+        <a  id="sugesta" class="mdl-navigation__link " toggle="modal-table "  href="#">Sugestões</a>
+        
 
                 <a class="mdl-navigation__link" id="presenca" toggle="modal-presence " href="negar_presenca.html">Negar Presença</a>
             </nav>
         </div>
     </header>
-    <main>
-
-      <div class="backgroud"></div>
-
-
-
-    
-
-  
-  
-  
-  
-  
-  
-  <div class="title">
-
-      <p class="size-3">Casamento de</p>
-      <p class="size-4">Felipe e Janaína</p>
-    </div>
-    
-    <div class="info">
-      <p class="size-2 right">24 de Junho de 2023</p>
-        <p class="size-1 right">Igreja Nossa Senhora de Fátima</p>
-    </div>
-    
-    <!-- 
-    <a class="button button-presence" toggle="modal-presence" href="#">
-      Negar presença
-    </a>
-    <a class="button button-present" toggle="modal-present" href="#">
-      Informar presente
-    </a>
-
-     -->
-    <header>
-      
-      
+    <main id="sugest">
       <div class="modal" id="modal-present" ontoggle="present">
         <div class="top">
           <a class="close" toggle="modal-present" href="#">X</a>
@@ -114,13 +86,109 @@
           </form>
         
     </div>
-</header>
 
-<!-- <script src="./source/verificator.js"></script> -->
+            <div class="backgroud"></div>
+            <div class="container">
+    </form>            
+
+    <div class="center">
+<!--     <form id="form_cadastro">
+      <label for="input">Sugestões de presente</label>
+      <br>
+      <input  type="text" name="input-presence" id="input">
+     
+
+      <div style="text-align: center;">
+
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+            Cadastrar
+        </button>
+      </div>
+    </p>
+    </div>
+  </form>  -->
+  <div class="modal" id="modal-escolher" ontoggle="escolher">
+    <div class="top">
+      <a class="close" toggle="modal-escolher" href="#">X</a>
+    </div>
+    <div class="center">      
+        <form id="form_sugest">          
+          <div class="toggle-radio" >
+            <h4>Deseja dividir?</h4>
+            <input type="text" id="doc-id" style="display:none" >
+            <input type="radio" value=true name="rdo" id="yes" >
+            <input type="radio" value=false name="rdo" id="no"checked>
+            <div class="switch">
+              <label for="yes">Sim</label>
+              <label for="no">Não</label>
+              <span></span>
+            </div>
+          </div>
+          <br>
+          <div id="campo-celular" style="display:none">
+           
+            <label>WhatsApp:</label>
+            <input type="tel" name="celular" value="" id="celular" >
+ 
+          </div>
+          <br>
+          <div class="error-sugest"></div>
+
+          <button class="mdl-button button_sugest mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+      Informar
+    </button>
+  </div>
+</div>
+
+<div class="modal" id="modal-table" ontoggle="sugestoes">
+  <div class="top">
+    <a class="close" toggle="modal-present" href="#">X</a>
+  </div>
+<table id="sugestoes" class="display" style="width:100%">
+            <thead>
+                <tr>
+                  <th>Sugestão</th>
+                  <th>Escolhido</th>
+                  
+                </tr>
+              </thead>
+              <tbody id="corpo_tabela">
+                <!-- <tr></tr> -->
+                </tbody>
+                </table>
+</div>
+
+
+</div>
 </main>
+</body>
+<script>
+
+                const radioInputs = document.querySelectorAll('input[type="radio"]');
+          
+          radioInputs.forEach(input => {
+          input.addEventListener('change', function() {
+
+
+            var campoCelular = document.getElementById("campo-celular");
+            if (input.value === 'true') {
+              campoCelular.style.display = "block";
+            } else {
+              campoCelular.style.display = "none";
+            }
+            //console.log(`O valor do input mudou para .`);
+            // Chame a sua função aqui
+          });
+          });
+
+          function enviarValor(id) {
+            console.log(id);
+            document.getElementById("doc-id").value = id;
+
+  }
+          
+          
+          </script>
 <script src="./source/main.mjs" type="module"></script>
 <script src="./source/teste.mjs" type="module"></script>
-<!-- <script src="./source/base.js"></script>
- --></body>
-
 </html>

@@ -1,7 +1,9 @@
 window._callable = {}
 
 Element.prototype.toggle = function () {
-    
+    const toggles = document.querySelectorAll('.modal');
+    console.log(JSON.stringify(toggles) + "element")
+
     let display = this.style.display
     if (display === '') {
         display = window.getComputedStyle(this).getPropertyValue('display')
@@ -22,6 +24,17 @@ Element.prototype.toggle = function () {
     }
     if (this.hasAttribute('ontoggle')) {
         const name = this.getAttribute('ontoggle')
+        // Adiciona um ouvinte de eventos em cada menu toggle
+        // Adiciona um ouvinte de eventos em cada menu toggle
+toggles.forEach(toggle => {
+
+      // Fecha todos os menus toggle que não foram clicados
+      console.log(toggle.getAttribute('ontoggle') + "togle")
+        if (toggle.getAttribute('ontoggle') !== name) {
+            toggle.style.display = 'none'
+        }
+      });
+
         if(name == 'escolher'){
                             // Recupera o valor do doc.id
                             var docId = document.getElementById('button_escolher').value;
