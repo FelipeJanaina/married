@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casamento</title>
+  <link rel="stylesheet" type="text/css" href="source/home.css">
+    
+ <!-- Inclua o arquivo CSS do MDL e do DataTables -->
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+<link rel="stylesheet" href="./estilo.css" />
+<link rel="stylesheet" href="./css/styles.css" />
+<!-- CSS para centralizar o modal -->
+<!-- Material Design icon font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script> <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="./source/jquery.dataTables.min.js"></script>
-    <script src="./sugestao.mjs" type="module"></script>
-    <title>Casamento</title>
-    <link rel="stylesheet" type="text/css" href="source/home.css">
-      
-   <!-- Inclua o arquivo CSS do MDL e do DataTables -->
- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
- <link rel="stylesheet" href="./estilo.css" />
- <link rel="stylesheet" href="./css/styles.css" />
- <!-- CSS para centralizar o modal -->
- <!-- Material Design icon font -->
- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
- <script src="https://code.getmdl.io/1.3.0/material.min.js"></script> <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="./source/jquery.dataTables.min.js"></script>
+<script src="./sugestao.mjs" type="module"></script>
 
- 
-   
-<script>
-
-
-
-
-   
-</script>
 </head>
 <body>
   <header class=" mdl-layout__header--waterfall portfolio-header">
-    
-    <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
-      <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-        <a toggle="modal-present" id="presente" class="mdl-navigation__link " href="index.html">Informar Presentes</a>
-        <a  id="sugesta" class="mdl-navigation__link " toggle="modal-table "  href="#">Sugestões</a>
-        
 
-                <a class="mdl-navigation__link" id="presenca" toggle="modal-presence " href="negar_presenca.html">Negar Presença</a>
-            </nav>
-        </div>
-    </header>
-    <main id="sugest">
-      <div class="modal" id="modal-present" ontoggle="present">
-        <div class="top">
-          <a class="close" toggle="modal-present" href="#">X</a>
-        </div>
-        <div class="center">
-            <form id="form_presente">
-              <label for="input-present">Nome do produto</label>
-              <br>
-              <input type="text" name="input-present" id="input-present">
-              <p id="input-present-info"></p>
+    <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <a toggle="modal-present" id="presente" class="mdl-navigation__link " href="index.html">Informar Presentes</a>
+              <a  id="sugesta"  class="mdl-navigation__link " toggle="modal-table"  href="#">Sugestões</a>
+
+            <a class="mdl-navigation__link" id="presenca" toggle="modal-presence " href="negar_presenca.html">Negar Presença</a>
+        </nav>
+    </div>
+</header>
+    
+<main id="sugest">
+    <div class="modal" id="modal-present" ontoggle="present">
+      <div class="top">
+        <a class="close" toggle="modal-present" href="#">X</a>
+      </div>
+      <div class="center">
+        <form id="form_presente">
+          <label for="input-present">Nome do produto</label>
+          <br>
+          <input type="text" name="input-present" id="input-present">
+          <p id="input-present-info"></p>
               <div class="error-present"></div>
-              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+              <button class="mdl-button button_sugest mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
                 Informar
             </button>
-            </div>
           </div>
+        </div>
         
-          <div class="modal" id="modal-presence" ontoggle="presence">
-          </form>            
-            <div class="top">
-              <a class="close" toggle="modal-presence" href="#">X</a>
-            </div>
-            <div class="center">
-            <form id="formulario">
-              <label for="input-presence">Nome de quem não irá comparecer</label>
+        <div class="modal" id="modal-presence" ontoggle="presence">
+        </form>            
+        <div class="top">
+          <a class="close" toggle="modal-presence" href="#">X</a>
+        </div>
+        <div class="center">
+          <form id="formulario">
+            <label for="input-presence">Nome de quem não irá comparecer</label>
               <br>
               <input  type="text" name="input-presence" id="input-presence">
               <div class="error-presence"></div>
@@ -76,37 +70,23 @@
                 <input type="checkbox" id="acompanhante" class="mdl-switch__input" checked><p> Acompanhantes também</p>
                 <span class="mdl-switch__label"></span>
               </label>
-   
+              
              
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+                <button class="mdl-button button_sugest mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
                     Informar
-                </button>
-            </p>
+                  </button>
+                </p>
             </div>
           </form>
         
-    </div>
+        </div>
+        
+        <div class="backgroud"></div>
+        </form>            
+        
+        <div class="center">
 
-            <div class="backgroud"></div>
-            <div class="container">
-    </form>            
-
-    <div class="center">
-<!--     <form id="form_cadastro">
-      <label for="input">Sugestões de presente</label>
-      <br>
-      <input  type="text" name="input-presence" id="input">
      
-
-      <div style="text-align: center;">
-
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-            Cadastrar
-        </button>
-      </div>
-    </p>
-    </div>
-  </form>  -->
   <div class="modal" id="modal-escolher" ontoggle="escolher">
     <div class="top">
       <a class="close" toggle="modal-escolher" href="#">X</a>
@@ -159,7 +139,6 @@
 </div>
 
 
-</div>
 </main>
 </body>
 <script>
