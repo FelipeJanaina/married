@@ -66,10 +66,17 @@
               <input  type="text" name="input-presence" id="input-presence">
               <div class="error-presence"></div>
               <p id="input-presence-info"></p>
-              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="acompanhante_label"for="acompanhante">
-                <input type="checkbox" id="acompanhante" class="mdl-switch__input" checked><p> Acompanhantes também</p>
-                <span class="mdl-switch__label"></span>
-              </label>
+              <div class="toggle-radio" >
+                <h4>Deseja dividir?</h4>
+                <input type="radio" value=true name="acompanhante" id="yes" >
+                <input type="radio" value=false name="acompanhante" id="no"checked>
+                <div class="switch">
+                  <label for="yes">Sim</label>
+                  <label for="no">Não</label>
+                  <span></span>
+                </div>
+              </div>
+
               
              
                 <button class="mdl-button button_sugest mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
@@ -137,7 +144,16 @@
                 </tbody>
                 </table>
 </div>
+<div class="title">
 
+  <p class="size-3">Casamento de</p>
+  <p class="size-4">Felipe e Janaína</p>
+</div>
+
+<div class="info">
+  <p class="size-2 right">24 de Junho de 2023</p>
+    <p class="size-1 right">Igreja Nossa Senhora de Fátima</p>
+</div>
 
 </main>
 </body>

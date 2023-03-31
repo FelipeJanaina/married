@@ -36,7 +36,6 @@ for (var i = 0; i < opcoes.length; i++) {
     if (opcoes[i].checked) {
       // Retorna o valor da opção selecionada
       var valorSelecionado = opcoes[i].value;
-      //alert(valorSelecionado)
       break;
     }
   }
@@ -76,7 +75,15 @@ for (var i = 0; i < opcoes.length; i++) {
 
     // Seu código para lidar com o envio do formulário aqui
     var nome = document.getElementById("input-presence").value;
-    var acompanhante = document.getElementById("acompanhante").value;
+    var opcoes = document.getElementsByName("acompanhante");
+    // Percorre a lista de opções e verifica qual delas está selecionada
+for (var i = 0; i < opcoes.length; i++) {
+  if (opcoes[i].checked) {
+    // Retorna o valor da opção selecionada
+    var acompanhante = opcoes[i].value;
+    break;
+  }
+}
 
                  console.log("ok");
                  //cadastra novo presente
