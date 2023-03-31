@@ -36,7 +36,7 @@ export class Storage {
 const docSnap = await getDoc(docRef);
 
         try {
-            const response = await getDocs(collection(db, "convite"));
+            const response = await getDocs(collection(db, "Sugestao"));
 
 
             if (!response.ok) {

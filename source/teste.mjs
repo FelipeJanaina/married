@@ -103,8 +103,10 @@ for (var i = 0; i < opcoes.length; i++) {
                  console.log("ok");
                  //cadastra novo presente
                  try {
-                     const docRef = await addDoc(collection(db, 'convite'),{
-                        presente
+                     const docRef = await addDoc(collection(db, 'Sugestao'),{
+                        nome:presente,
+                        escolhido:true,
+                        dividir:false
                      }
                      );
                      successMsg.innerHTML = "Presente cadastrado com sucesso!";
@@ -132,7 +134,7 @@ for (var i = 0; i < opcoes.length; i++) {
       
     produto.addEventListener('input', async function (event) {
         produto.value = produto.value.toLowerCase()
-        const q = query(collection(db, "convite"), where("presente", "==", produto.value));
+        const q = query(collection(db, "Sugestao"), where("nome", "==", produto.value));
         let i = 0;
 
         const resultados = await getDocs(q);
