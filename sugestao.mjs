@@ -39,9 +39,11 @@ var corpo_tabela = minhaTabela.querySelector("tbody");
 
         doc.data().escolhido == false? selecionado =   
 //        '<a class="mdl-navigation mdl-typography--body-1-force-preferred-font" id="escolher" href="#" toggle="modal-escolher ">Escolher</a>'
-        ' <button toggle="modal-escolher " value="' + doc.id +'" id= "button_escolher" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">   <i class="fa-solid fa-check"> </i> Escolher </button>'
+        ` <button toggle="modal-escolher " id= "button_escolher" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="enviarValor('${doc.id}')">   <i class="fa-solid fa-check"> </i> Escolher </button>`
+        :doc.data().dividir == 'true'?
+        selecionado =     `<a class="" id="dividir" href="https://wa.me/${doc.data().numero}"> <button id= "button_dividir" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">   <i class="fa-brands fa-whatsapp"></i> Dividir </button</a>    `
         :
-        selecionado =     '<a class="" id="dividir" href="https://wa.me/5555991345102"> <button id= "button_dividir" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">   <i class="fa-brands fa-whatsapp"></i> Dividir </button</a>    '
+        selecionado =     '<button id= "button_escolhido" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">   <i class="fas fa-ring" disabled ></i> Marcado </button>  '
         dados = dados + "<tr> <td>" + doc.data().nome + "</td><td>" + selecionado + "</td></tr> "
 });
 // console.log(dados)
@@ -54,7 +56,7 @@ $(document).ready(function() {
   });
 
 
-  const form = document.querySelector("#formulario");
+  const form = document.querySelector("#form_cadastro");
 
 form.addEventListener("submit", async function(event) {
   event.preventDefault();
@@ -65,13 +67,14 @@ form.addEventListener("submit", async function(event) {
  var escolhido = false;
 
 
-              console.log("ok");
+              console.log("ok cadastro");
               //cadastra novo presente
               try {
                   const docRef = await addDoc(collection(db, 'Sugestao'),{
                      nome,escolhido 
                   }
                   );
+                  //alert("cadastrou")
                   console.log("Document written with ID: ", docRef.id);
               } catch (e) {
                  var divErro = document.querySelector('.error-presence');

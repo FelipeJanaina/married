@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="./source/jquery.dataTables.min.js"></script>
@@ -22,7 +22,10 @@
  
    
 <script>
-    
+
+
+
+
    
 </script>
 </head>
@@ -40,40 +43,81 @@
         </div>
     </header>
     <main id="sugest">
+      <div class="modal" id="modal-present" ontoggle="present">
+        <div class="top">
+          <a class="close" toggle="modal-present" href="#">X</a>
+        </div>
+        <div class="center">
+            <form id="form_presente">
+              <label for="input-present">Nome do produto</label>
+              <br>
+              <input type="text" name="input-present" id="input-present">
+              <p id="input-present-info"></p>
+              <div class="error-present"></div>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+                Informar
+            </button>
+            </div>
+          </div>
+        
+          <div class="modal" id="modal-presence" ontoggle="presence">
+          </form>            
+            <div class="top">
+              <a class="close" toggle="modal-presence" href="#">X</a>
+            </div>
+            <div class="center">
+            <form id="formulario">
+              <label for="input-presence">Nome de quem não irá comparecer</label>
+              <br>
+              <input  type="text" name="input-presence" id="input-presence">
+              <div class="error-presence"></div>
+              <p id="input-presence-info"></p>
+              <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" id="acompanhante_label"for="acompanhante">
+                <input type="checkbox" id="acompanhante" class="mdl-switch__input" checked><p> Acompanhantes também</p>
+                <span class="mdl-switch__label"></span>
+              </label>
+   
+             
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+                    Informar
+                </button>
+            </p>
+            </div>
+          </form>
+        
+    </div>
 
             <div class="backgroud"></div>
             <div class="container">
     </form>            
-    <div class="top">
-      <a class="close" toggle="modal-escolher" href="#">X</a>
-    </div>
+
     <div class="center">
-    <form id="formulario">
+<!--     <form id="form_cadastro">
       <label for="input">Sugestões de presente</label>
       <br>
       <input  type="text" name="input-presence" id="input">
      
 
-     
+      <div style="text-align: center;">
+
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
-            Informar
+            Cadastrar
         </button>
+      </div>
     </p>
     </div>
-  </form> 
+  </form>  -->
   <div class="modal" id="modal-escolher" ontoggle="escolher">
     <div class="top">
       <a class="close" toggle="modal-escolher" href="#">X</a>
     </div>
-    <div class="center">
-  
-      
-        <form id="form_presente">
-          
+    <div class="center">      
+        <form id="form_sugest">          
           <div class="toggle-radio" >
             <h4>Deseja dividir?</h4>
-            <input type="radio" value="1" name="rdo" id="yes" >
-            <input type="radio" value="0" name="rdo" id="no"checked>
+            <input type="text" id="doc-id" style="display:none" >
+            <input type="radio" value=true name="rdo" id="yes" >
+            <input type="radio" value=false name="rdo" id="no"checked>
             <div class="switch">
               <label for="yes">Sim</label>
               <label for="no">Não</label>
@@ -84,9 +128,12 @@
           <div id="campo-celular" style="display:none">
            
             <label>WhatsApp:</label>
-            <input type="tel" name="celular" pattern="\([0-9]{2}\) [0-9]{5}-[0-9]{4}" >
+            <input type="tel" name="celular" value="" id="celular" >
  
           </div>
+          <br>
+          <div class="error-sugest"></div>
+
           <button class="mdl-button button_sugest mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
       Informar
     </button>
@@ -111,13 +158,16 @@
 </div>
 </main>
 </body>
-              <script>
+<script>
+
                 const radioInputs = document.querySelectorAll('input[type="radio"]');
           
           radioInputs.forEach(input => {
           input.addEventListener('change', function() {
+
+
             var campoCelular = document.getElementById("campo-celular");
-            if (input.value == 1) {
+            if (input.value === 'true') {
               campoCelular.style.display = "block";
             } else {
               campoCelular.style.display = "none";
@@ -126,6 +176,12 @@
             // Chame a sua função aqui
           });
           });
+
+          function enviarValor(id) {
+            console.log(id);
+            document.getElementById("doc-id").value = id;
+
+  }
           
           
           </script>

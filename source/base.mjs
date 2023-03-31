@@ -1,6 +1,7 @@
 window._callable = {}
 
 Element.prototype.toggle = function () {
+    
     let display = this.style.display
     if (display === '') {
         display = window.getComputedStyle(this).getPropertyValue('display')
@@ -11,13 +12,21 @@ Element.prototype.toggle = function () {
             this.removeAttribute('_display')
         } else {
             this.style.display = 'block'
+            //document.getElementById("sugest").style.display = 'none'
+            
         }
     } else {
         this.setAttribute('_display', display)
         this.style.display = 'none'
+        //document.getElementById("sugest").style.display = 'block'
     }
     if (this.hasAttribute('ontoggle')) {
         const name = this.getAttribute('ontoggle')
+        if(name == 'escolher'){
+                            // Recupera o valor do doc.id
+                            var docId = document.getElementById('button_escolher').value;
+                            //document.getElementById("doc-id").value = docId;
+        }
         window._callable[name](this, this.style.display !== 'none')
     }
 }
