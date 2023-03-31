@@ -44,12 +44,12 @@ for (var i = 0; i < opcoes.length; i++) {
 
                    console.log("ok");
                    //cadastra novo presente
-                   let successMsg = document.createElement("div");
                    console.log(id + " id: " + valorSelecionado + " " + celular)
                    try {
-                       setDoc(doc(db, 'Sugestao', id),{ dividir: valorSelecionado,escolhido:true,numero:celular }, { merge: true });
-                        //alert('ok')
-                        // cria um elemento de mensagem de sucesso e adiciona-o ao corpo da página
+                     setDoc(doc(db, 'Sugestao', id),{ dividir: valorSelecionado,escolhido:true,numero:celular }, { merge: true });
+                     //alert('ok')
+                     // cria um elemento de mensagem de sucesso e adiciona-o ao corpo da página
+                     let successMsg = document.createElement("div");
                         successMsg.innerHTML = "Escolha cadastrada com sucesso!";
                         successMsg.classList.add("toast");
                         document.body.appendChild(successMsg);
@@ -92,12 +92,23 @@ for (var i = 0; i < opcoes.length; i++) {
                         nome,acompanhante
                      }
                      );
+                            // cria um elemento de mensagem de sucesso e adiciona-o ao corpo da página
+                            let successMsg = document.createElement("div");
+                            successMsg.innerHTML = "Cadastro realizado!";
+                            successMsg.classList.add("toast");
+                            document.body.appendChild(successMsg);
+                            // define um tempo limite para o toast e remove-o após 5 segundos
+                            setTimeout(function() {
+                              successMsg.remove();
+                            }, 5000);
+                            var divErro = document.querySelector('#modal-presence');
+                            divErro.style.display = 'none';
                      console.log("Document written with ID: ", docRef.id);
                  } catch (e) {
-                    var divErro = document.querySelector('.error-presence');
-                    divErro.style.display = 'block';
+                    //var divErro = document.querySelector('.error-presence');
+                    //divErro.style.display = 'block';
 
-                    divErro.innerHTML = ' Erro ao informar'
+                    //divErro.innerHTML = ' Erro ao informar'
                  }
                 });   
     form_presente.addEventListener("submit", async function(event) {
@@ -116,6 +127,8 @@ for (var i = 0; i < opcoes.length; i++) {
                         dividir:false
                      }
                      );
+                     let successMsg = document.createElement("div");
+
                      successMsg.innerHTML = "Presente cadastrado com sucesso!";
                      successMsg.classList.add("toast");
                      document.body.appendChild(successMsg);
@@ -126,10 +139,10 @@ for (var i = 0; i < opcoes.length; i++) {
                      var divErro = document.querySelector('#modal-present');
                      divErro.style.display = 'none';    
                     } catch (e) {
-                    var divErro = document.querySelector('.error-present');
-                    divErro.style.display = 'block';
+                    //var divErro = document.querySelector('.error-present');
+                    //divErro.style.display = 'block';
 
-                    divErro.innerHTML = ' Erro ao informar'
+                    //divErro.innerHTML = ' Erro ao informar'
                  }
              });
 
@@ -140,7 +153,7 @@ for (var i = 0; i < opcoes.length; i++) {
       });
       
     produto.addEventListener('input', async function (event) {
-        produto.value = produto.value.toLowerCase()
+        produto.value = produto.value;
         const q = query(collection(db, "Sugestao"), where("nome", "==", produto.value));
         let i = 0;
 
