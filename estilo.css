@@ -38,6 +38,11 @@ table{
   transition: all 0.2s ease;
   border-radius: 25px;
 }
+#presente{
+  margin-bottom: 5%;
+  background: linear-gradient(to bottom, #c12413, #cb7777) !important;
+
+}
 .switch span {
   position: absolute;
   width: 20px;
