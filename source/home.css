@@ -56,6 +56,12 @@ div.modal {
     
 }
 
+/* Estilos para telas de tablet */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    div.modal{
+        width: 80% !important;
+    }
+}
 .error-presence .error-presence  {
     color: red;
     font-weight: bold;
@@ -64,12 +70,7 @@ div.modal {
     margin-bottom: 10px;
     display: none;
   }
-/* Estilos para telas de tablet */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    div.modal{
-        width: 80% !important;
-    }
-}
+
 @media (max-width: 600px) {
     div.modal{
 
