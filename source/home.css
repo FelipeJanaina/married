@@ -46,7 +46,7 @@ div.modal {
     /* width: 100vw; */
     /* height: 100vh; */
     width: 30%;
-    height: 60%;
+    height: 70%;
     z-index: 1;
     border-radius: 10px;
     background-color: white;
@@ -64,12 +64,17 @@ div.modal {
     margin-bottom: 10px;
     display: none;
   }
-
+/* Estilos para telas de tablet */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    div.modal{
+        width: 80% !important;
+    }
+}
 @media (max-width: 600px) {
     div.modal{
 
         width: 90% !important;
-        top: 40%;
+        top: 50%;
     }
     p.size-4 {
         font-size: 20px;

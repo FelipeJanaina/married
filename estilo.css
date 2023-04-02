@@ -100,7 +100,7 @@ label[for=no] {
 }
 input[type=tel] {
   border-bottom: 2px solid black;
-  margin-top: 25%;
+  margin-top: 10%;
 }
 th{
   /* color:#ffffff; */
